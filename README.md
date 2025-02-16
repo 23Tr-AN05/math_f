@@ -14,59 +14,126 @@
   <p>Choisissez une classe</p>
 </div>
 
+
 <div class="w3-bar w3-black">
-  <button class="w3-bar-item w3-button" onclick="openCity('Seconde ')">Seconde</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Ac')">Acceuil</button>
+  <!--<button class="w3-bar-item w3-button" onclick="openCity('Six')">Sixième</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Cinq')">Cinquième</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Quatre')">Quatrième</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Trois')">Troisième</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Seconde')">Seconde</button>-->
   <button class="w3-bar-item w3-button" onclick="openCity('Première')">Première G</button>
   <button class="w3-bar-item w3-button" onclick="openCity('Terminale')">Terminale G</button>
-   <button class="w3-bar-item w3-button" onclick="openCity('fr')">Français Première-BAC</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Français')">Français Première-BAC</button>
+  <!-- <button class="w3-bar-item w3-button" onclick="openCity('Info')">Informatique</button>-->
 </div>
-
-<div id="Seconde" class="w3-container city">
-    <h2>-</h2>
-    <p>--</p> 
-</div>
-
-<div id="Premère" class="w3-container city" style="display:none">
-  <h2>-</h2>
+<div id="Ac" class="w3-container city" style="display:none">
+  <p id="para2">-</p>
   <p>--</p> 
+  <hr>
 </div>
-
-<div id="Terminale G" class="w3-container city" style="display:none">
- <h2>Equations différentielles</h2>
-    <ol>
-      <li><a href="mat/equadif.pdf" dowload=""><h2>Cours-Equations differentielles<h2></a></li>
-      <li><a href="TD.pdf" dowload=""><h2>TD-Equations differentielles<h2></a></li>
-      <li><a href="TD-correction.pdf" dowload=""><h2>Correction-Equations differentielles<h2></a></li>
-   </ol>
-  <p></p>
-
-
-</div>
-
-<div id="fr" class="w3-container city">
-  <h1>Français- Première - BAC<h1>
-    <h2>- Programme officiel- Français pour  2024-2025</h2>
-    <br><a href="2024-2025.pdf" dowload=""><h2>Les œuvres au programme<h2></a>
-    <br>
-    <h2>Arthur RIMBAUD, <i>Cahier de Douai</i></h2>
-    <br><a href="Rimbaud-Cahier_de_Douai.pdf" dowload=""><h2>Présentation de l'œuvre-1<h2></a>
+<!--
+<div id="Six" class="w3-container city">
+    <p id="para2">-</p>
     <p>--</p> 
-    <h2>Sujets de dissertation</h2>
-    <br><a href="Sujet_de_dissertation.pdf" dowload=""><h2>Présentation de l'œuvre-1<h2></a>
+ <hr> 
+</div>
+<div id="Cinq" class="w3-container city">
+    <p id="para2">-</p>
+    <p>--</p> 
+  <hr>
+</div>
+<div id="Quatre" class="w3-container city">
+    <p id="para2">-</p>
+    <p>--</p> 
+  <hr>
+</div>
+<div id="Tois" class="w3-container city">
+    <p id="para2">-</p>
+    <p>--</p> 
+  <hr>
+</div>
+<div id="Seconde" class="w3-container city">
+    <p id="para2">-</p>
+    <p>--</p> 
+  <hr>
+</div>
+<div id="Première" class="w3-container city" style="display:none">
+  <p id="para2">-</p>
+  <p>--</p> 
+  <hr>
+</div>-->
 
+<div id="Terminale" class="w3-container city" style="display:none">
+ <p id="para1">Terminale Générale</p>
+ <p id="para6">Equations différentielles</p>
+    <ul>
+      <li><a href="mat/Tle/ED/Cours-equations_differentielles.pdf" dowload=""><p id="para4">Cours-Equations differentielles</p></a></li>
+      <li><a href="mat/Tle/ED/TD-equations_differentielles.pdf" dowload=""><p id="para4">TD-Equations differentielles</p></a></li>
+      <li><a href="mat/Tle/ED/TD-equations_differentielles-correction.pdf" dowload=""><p id="para4">Correction-Equations differentielles</p></a></li>
+   </ul>
+  <p></p>
+  <hr>
 </div>
 
-
+<div id="Français" class="w3-container city" style="display:none">
+  <center><p id="para1">Français- Première - BAC</p></center>
+  <div id="center">
+  <p id="para3" style="border: 1px solid black; padding: 10px;"> ⨝Je vous conseille vivement utiliser <a href="https://cnrtl.fr/definition/"><font sytle="color:#0000FF;"><u>CNRTL</u></font></a>, un dictionnaire en ligne (une référence de pluparts des proffesseur) ou si vous ne vous maîtrisez pas la langue française :<a href="https://www.wordreference.com/fr/"><font sytle="color:#0000FF;"><u>WordReference</u></font></a>
+  <br> ⨝ Vous avez, dans les fichier ci-dessus, certaines questions (signalées par "¿" en début des questions).<br> Je vous invite à réfléchir à ses questions qui peuvent être très utiles pour la compréhension de certains passages ou pour une dissertation.
+  <br>⨝ ⨝ S pour "Séance"</p></div>
+  <p id="para2">- Programme officiel- Français pour  2024-2025</p>
+    <ul>
+        <li><a href="fr/2024-2025-G.pdf" dowload=""><p id="para4">Les œuvres au programme de Première Générale</p></a></li>
+        <li><p id="para4"><a href="fr/2024-2025-T.pdf" dowload="">Les œuvres au programme de Première Technologique</a></p></li> 
+    </ul>
+    <p id="para2">-Arthur RIMBAUD, <i>Cahier de Douai</i></p>
+        <ul>
+            <li><a href="fr/Douai/Rimbaud-Cahier_de_Douai.pdf" dowload=""><p id="para4">Présentation de l'œuvre-S1</p></a></li>
+            <!--<li><a href="fr/" dowland=""><p id="para4">Biographie de l'auteur-2</p></a></li>-->
+        </ul>    
+    <p id="para2">-Abbé Prévost, <i>Manon Lescaut</i></p>
+        <ul>
+            <li><a href="fr/Lescaut/Abbé_Prevost-Manon_Lescaut.pdf" dowload=""><p id="para4">Présentation de Parcours-S1</p></a></li>
+            <li><a href="fr/Lescaut/ .pdf" dowload=""><p id="para4">Présentation de l'œuvre-S2</p></a></li>
+            <li><a href="fr/Lescaut/Structure-Manon_Lescaut.pdf" dowload=""><p id="para4">Structure de l'œuvre-S3 </p></a></li>
+            <li><a href="fr/Lescaut/Cit-Manon_Lescaut.pdf" dowload=""><p id="para4">Quelques citations -S4</p></a></li>
+        </ul> 
+        <!--<p id="para2">-Honoré de Balzac, <i>La Peau de chagrin</i></p>
+        <ul>
+            <li><a href="fr/Abbé_Prevost-Manon_Lescaut.pdf" dowload=""><p id="para4">Présentation de Parcours-1</p></a></li>
+            <li><a href="fr/ .pdf" dowload=""><p id="para4">Présentation de l'œuvre-2</p></a></li>
+         </ul>  
+         <p id="para2">-Olympe de Gouges, <i>La Déclaration des droits de la femme et de la citoyenne</i></p>
+        <ul>
+            <li><a href="fr/DDFC/Olympe_de_Gouges-DDFC.pdf" dowload=""><p id="para4">Présentation de Parcours-1</p></a></li>
+            <li><a href="fr/ .pdf" dowload=""><p id="para4">Présentation de l'œuvre-2</p></a></li>
+         </ul>     -->
+    <p id="para2">-Sujets de dissertation</p>
+        <ul>
+            <li><a href="fr/Douai/Dis-Cahier_de_Douai.pdf" dowland=""><p id="para4">Arthur RIMBAUD, <i> Cahier de Douai</i></p></a></li>
+            <li><a href="fr/Chagrin/Dis-Peau_de_chagrin.pdf" dowland=""><p id="para4">Honoré de Balzac, <i>La Peau de chagrin</i></p></a> </li>
+            <li><a href="fr/DDFC/Dis-DDFC.pdf" dowland=""><p id="para4">Olympe de Gouges, <i>Déclaration des droits de la femme et de la citoyenne </i></p></a> </li>
+            <li><a href="fr/Lescaut/Dis-Manon_Lescaut.pdf" dowland=""><p id="para4">Abbé Prévost, <i>Manon Lescaut </i></p></a> </li>
+            <li><a href="fr/sujet-de-BAC-2024.pdf" dowland=""><p id="para4">Sujets de Bac  de l'épreuve de 2024 </p></a> </li>
+         </ul>
+    <hr>
+ </div>
 
  
 <script>
-function openCity(cityName) {
-  var i;
-  var x = document.getElementsByClassName("city");
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
   for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
+    x[i].style.display = "none";
   }
-  document.getElementById(cityName).style.display = "block";  
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
 }
 </script>
 
