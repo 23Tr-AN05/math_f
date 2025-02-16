@@ -4,6 +4,8 @@
     <link href="style.css" rel="stylesheet" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
  </head>
  <body>
  <center><p id="para2">Mathémattiques</p></center>
@@ -13,21 +15,21 @@
   <h2>Mathématiques </h2>
   <p>Choisissez une classe</p>
 </div>
-
+ 
 
 <div class="w3-bar w3-black">
-  <button class="w3-bar-item w3-button" onclick="openCity('Ac')">Acceuil</button>
-  <!--<button class="w3-bar-item w3-button" onclick="openCity('Six')">Sixième</button>
-  <button class="w3-bar-item w3-button" onclick="openCity('Cinq')">Cinquième</button>
-  <button class="w3-bar-item w3-button" onclick="openCity('Quatre')">Quatrième</button>
-  <button class="w3-bar-item w3-button" onclick="openCity('Trois')">Troisième</button>
-  <button class="w3-bar-item w3-button" onclick="openCity('Seconde')">Seconde</button>-->
-  <button class="w3-bar-item w3-button" onclick="openCity('Première')">Première G</button>
-  <button class="w3-bar-item w3-button" onclick="openCity('Terminale')">Terminale G</button>
-  <button class="w3-bar-item w3-button" onclick="openCity('Français')">Français Première-BAC</button>
-  <!-- <button class="w3-bar-item w3-button" onclick="openCity('Info')">Informatique</button>-->
+  <button class="w3-bar-item w3-button tablink w3-red" onclick="openCity(event,'Ac')">Acceuil</button>
+  <!--<button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Six')">Sixième</button>
+ <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Cinq')">Cinquième</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Quatre')">Quatrième</button>
+ <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Trois')">Troisième</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Seconde')">Seconde</button>-->
+  <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Première')">Première G</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Terminale')">Terminale G</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Français')">Français Première-BAC</button>
+  <!-- <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Info')">Informatique</button>-->
 </div>
-<div id="Ac" class="w3-container city" style="display:none">
+ <div id="Ac" class="w3-container city">
   <p id="para2">-</p>
   <p>--</p> 
   <hr>
