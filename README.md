@@ -174,20 +174,11 @@ function myFunction(id) {
   var x = document.getElementById(id);
   if (x.className.indexOf("w3-show") == -1) {
     x.className += " w3-show";
-       content.style.display = "block";
   } else { 
     x.className = x.className.replace(" w3-show", "");
-     content.style.display = "none";
   }
-}
-
-
-
-
-  <script>
-  var coll = document.getElementsByClassName("collapsible");
+ var coll = document.getElementsByClassName("collapsible");
   var i;
- 
   for (i  = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function() {
           this.classList.toggle("active");
@@ -199,6 +190,15 @@ function myFunction(id) {
           }
       });
   }
+}
+
+
+
+
+  <script>
+  
+ 
+  
   </script>
 </script>
 </body>
