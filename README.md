@@ -73,7 +73,7 @@
  <p id="para1">Terminale Générale</p>
  
 <div class="w3-container">
- <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-left-align"><p id="para6">Equations différentielles</p></button>
+ <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-black w3-left-align">><p id="para6">Equations différentielles</p></button>
  
  <div id="Demo1" class="w3-hide">
     <ul>
