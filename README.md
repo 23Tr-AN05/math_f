@@ -72,7 +72,7 @@
 <div id="Terminale" class="w3-container city" style="display:none">
  <p id="para1">Terminale Générale</p>
  
-<div class="w3-container">
+<div class="w3-container" style="margin:2em;">
  <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-yellow w3-left-align"><p id="para6">Equations différentielles</p></button>
  
  <div id="Demo1" class="w3-hide">
