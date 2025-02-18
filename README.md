@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
  </head>
  <body>
@@ -50,12 +53,12 @@
     <p>--</p> 
   <hr>
 </div>
-<div id="Tois" class="w3-container city">
+<div id="Tois" class="w3-container city" tyle="display:none">
     <p id="para2">-</p>
     <p>--</p> 
   <hr>
 </div>
-<div id="Seconde" class="w3-container city">
+<div id="Seconde" class="w3-container city" tyle="display:none">
     <p id="para2">-</p>
     <p>--</p> 
   <hr>
@@ -68,12 +71,17 @@
 
 <div id="Terminale" class="w3-container city" style="display:none">
  <p id="para1">Terminale Générale</p>
- <p id="para6">Equations différentielles</p>
+ 
+<div class="w3-container">
+ <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-left-align"><p id="para6">Equations différentielles</p></button>
+ 
+ <div id="Demo1" class="w3-hide">
     <ul>
       <li><a href="mat/Tle/ED/Cours-equations_differentielles.pdf" dowload=""><p id="para4">Cours-Equations differentielles</p></a></li>
       <li><a href="mat/Tle/ED/TD-equations_differentielles.pdf" dowload=""><p id="para4">TD-Equations differentielles</p></a></li>
       <li><a href="mat/Tle/ED/TD-equations_differentielles-correction.pdf" dowload=""><p id="para4">Correction-Equations differentielles</p></a></li>
    </ul>
+   </div></div>
   <p></p>
   <hr>
 </div>
@@ -139,5 +147,15 @@ function openCity(evt, cityName) {
 }
 </script>
 
+<script>
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
 </body>
 </html>
