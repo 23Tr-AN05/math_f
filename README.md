@@ -102,7 +102,7 @@
  <div class="w3-container">
 
  <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-white w3-left-align"><p id="para6">Equations différentielles</p></button>
-  <div id="Demo1" class="w3-hide w3-container w3-light-grey"  style="margin:2em;">
+  <div id="Demo1" class="w3-hide w3-container w3-light-grey">
     <ul>
       <li><a href="mat/Tle/ED/Cours-equations_differentielles.pdf" dowload=""><p id="para4">Cours-Equations differentielles</p></a></li>
       <li><a href="mat/Tle/ED/TD-equations_differentielles.pdf" dowload=""><p id="para4">TD-Equations differentielles</p></a></li>
@@ -111,7 +111,7 @@
    </div>
 
    <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-white w3-left-align">Open Section 2</button>
-  <div id="Demo2" class="w3-hide w3-container">
+  <div id="Demo2" class="w3-hide w3-container w3-light-grey">
     <p>
      <ul>
       <li><a href="mat/Tle/ED/Cours-equations_differentielles.pdf" dowload=""><p id="para4">Cours-Equations differentielles</p></a></li>
