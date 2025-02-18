@@ -9,6 +9,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+#last 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
  <style>
  .collapsible {
   background-color:#313131;
@@ -91,19 +94,36 @@
   <hr>
 </div>-->
 
+<button onclick="myFunction('Demo1')" class="w3-button w3-block w3-white w3-left-align">Open Section 1</button>
+<div id="Demo1" class="w3-hide w3-container w3-light-grey">
+
+
 <div id="Terminale" class="w3-container city" style="display:none">
  <p id="para1">Terminale Générale</p>
- 
-<div class="w3-container">
+ <div class="w3-container">
+
  <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-white w3-left-align"><p id="para6">Equations différentielles</p></button>
- 
- <div id="Demo1" class="w3-hide"  style="margin:2em;">
+  <div id="Demo1" class="w3-hide w3-container w3-light-grey"  style="margin:2em;">
     <ul>
       <li><a href="mat/Tle/ED/Cours-equations_differentielles.pdf" dowload=""><p id="para4">Cours-Equations differentielles</p></a></li>
       <li><a href="mat/Tle/ED/TD-equations_differentielles.pdf" dowload=""><p id="para4">TD-Equations differentielles</p></a></li>
       <li><a href="mat/Tle/ED/TD-equations_differentielles-correction.pdf" dowload=""><p id="para4">Correction-Equations differentielles</p></a></li>
    </ul>
-   </div></div>
+   </div>
+
+   <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-white w3-left-align">Open Section 2</button>
+  <div id="Demo2" class="w3-hide w3-container">
+    <p>
+     <ul>
+      <li><a href="mat/Tle/ED/Cours-equations_differentielles.pdf" dowload=""><p id="para4">Cours-Equations differentielles</p></a></li>
+      <li><a href="mat/Tle/ED/TD-equations_differentielles.pdf" dowload=""><p id="para4">TD-Equations differentielles</p></a></li>
+      <li><a href="mat/Tle/ED/TD-equations_differentielles-correction.pdf" dowload=""><p id="para4">Correction-Equations differentielles</p></a></li>
+   </ul></p>
+</div>
+
+   
+   
+   </div>
   <p></p>
   <hr>
 </div>
@@ -180,6 +200,22 @@ function myFunction(id) {
 }
 </script>
   
+
+#last 
+  <script>
+function myFunction(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace("w3-white", "w3-gray");
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+    x.previousElementSibling.className = 
+    x.previousElementSibling.className.replace("w3-gray", "w3-white");
+  }
+ }
+</script>
  
   
   </script>
