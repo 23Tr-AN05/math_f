@@ -211,7 +211,7 @@ function myFunction(id) {
   } else { 
     x.className = x.className.replace(" w3-show", "");
     x.previousElementSibling.className = 
-    x.previousElementSibling.className.replace("w3-yellow", "w3-white");
+    x.previousElementSibling.className.replace("", "w3-white");
   }
  }
 </script>
