@@ -9,6 +9,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ <style>
+ .collapsible {
+  background-color:#313131;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+ }
+ .active, .collapsible:hover {
+    background-color: #313131;
+ }
+ .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color:#313131;
+ }
+ </style>
  </head>
  <body>
  <center><p id="para2">Mathémattiques</p></center>
@@ -152,10 +174,32 @@ function myFunction(id) {
   var x = document.getElementById(id);
   if (x.className.indexOf("w3-show") == -1) {
     x.className += " w3-show";
+       content.style.display = "none";
   } else { 
     x.className = x.className.replace(" w3-show", "");
+     content.style.display = "block";
   }
 }
+
+
+
+
+  <script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+ 
+  for (i  = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "block") {
+              content.style.display = "none";
+          } else {
+              content.style.display = "block";
+          }
+      });
+  }
+  </script>
 </script>
 </body>
 </html>
