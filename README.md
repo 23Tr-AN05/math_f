@@ -14,6 +14,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 
  <style>
  .collapsible {
@@ -61,6 +64,45 @@
   <!-- <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Info')">Informatique</button>-->
 </div>
  <div id="Ac" class="w3-container city">
+   <p id="para2">Bienvenue</p>
+  <p id="para3">Sur ce site, vous trouverez les cours de mathématiques ainsi de français, qui peuvent vous servir.<br /> En particulier pour ceux qui se préparent au Baccalauréat.</p>
+ <br />
+  <div id="center">
+  <p id="para33">Si vous avez des questions vous pouvez envoyer un mail en choissisant la matière concernée. Je vous réponderai plutôt possible par mail ou vous pouvez consulter l'onglet "forum", où je mettrais certaines questions avec leur réponse. 
+  <br />&nbsp;&nbsp;&nbsp;⯑ &nbsp;<a title="Question" href="mailto:ozcelebialican2005@gmail.com?subject=J'ai une question%5BMat%5D&amp;body=Ma%20question%20se%20porte%20sur%20les%20mathématiques%20(ne%20changez%20pas%20l'objet%20du%20mail).">Mathémmatiques</a>
+  <br />&nbsp;&nbsp;&nbsp;⯑&nbsp;<a title="Question" href="mailto:ozcelebialican2005@gmail.com?subject=J'ai une question%5BFR%5D&amp;body=Ma%20question%20se%20porte%20sur%20le%20français%20 (ne%20changez%20pas%20l'objet%20du%20mail).">Français</a>
+  <br /> &nbsp;&nbsp;&nbsp; ‼‽ &nbsp;<a title="Signaler une erreur" href="mailto:ozcelebialican2005@gmail.com?subject=%5BErreur%5D&amp;body=Ma%20question%20se%20porte%20sur%20le%20français%20 (ne%20changez%20pas%20l'objet%20du%20mail).%0ADans%20l'onglet:%0ANom%20du%20fichier:%0AErreur:">Je signale une erreur!</a>
+  </p></div>
+  <p><font style="color:red"><b>L'onglet Forum</b> est actuellement <b>vide</b>, donc l'onglet est désactivé temporairement (je l'activerai dès lors que j'aurais une question posée)</font></p>
+  <p>--</p> 
+  <hr />
+ </div>
+ <div class="w3-container">
+  <h2>Displaying Quotes</h2>
+  <p>The w3-panel class can be used to display quotes:</p>
+
+  <div class="w3-panel w3-leftbar w3-light-grey">
+<div onclick='expand_to_fullscreen(this)' class="container-sm expandable" style="max-width:800px">
+<div id="quote-zone" class="mt-5 mb-3 rainbow-text"> 
+    <div>
+        <span id="quote-author"></span>   
+        <span id="quote-navigation">
+            <i class="bi bi-sm bi-caret-left" onclick="event.stopPropagation(); previous_quote()" tippy="précédente"></i>
+            <span id="numero-citation"></span> 
+            <i class="bi bi-sm bi-copy" onclick="event.stopPropagation(); copy_quote_to_clipboard()" tippy="copier"></i>
+            <i class="bi bi-sm bi-caret-right" onclick="event.stopPropagation(); next_quote()" tippy="suivante"></i>
+        </span>
+    </div>    
+    <div><q id="quote-text"></q></div>
+</div>
+</div>
+  </div>
+</div>
+
+
+
+
+
   <p id="para2">-</p>
   <p>--</p> 
   <hr>

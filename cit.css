@@ -1,0 +1,45 @@
+
+<style>
+@keyframes rainbowText {
+    0% { color: hsl(240, 100%, 50%); } /* Bleu */
+    10% { color: hsl(280, 100%, 50%); } /* Violet */
+    20% { color: hsl(305, 100%, 40%); } /* Magenta */
+    30% { color: hsl(0, 100%, 50%); } /* Rouge */
+    40% { color: hsl(34, 100%, 50%); } /* Orange */
+    50% { color: hsl(60, 100%, 40%); } /* Jaune */
+    60% { color: hsl(109, 100%, 40%); } /* Vert */
+    70% { color: hsl(180, 100%, 40%); } /* Cyan */
+    80% { color: hsl(240, 100%, 50%); } /* Bleu */
+    100% { color: hsl(240, 100%, 50%); } /* Bleu */
+}
+
+.rainbow-text {
+    transition-duration: 1s;
+    animation: rainbowText 100s linear infinite;
+}
+
+#quote-text {
+    min-height: 2em;
+    font-style: italic;
+}
+
+#quote-author {
+    font-weight: bold;
+}
+
+#quote-navigation {
+    float: right;
+    text-align: right;
+    cursor:pointer;   
+}
+
+#quote-zone {
+    transition: color 1s;
+    width: 100%;
+    min-height: 90px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+</style>
