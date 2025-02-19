@@ -79,11 +79,7 @@
   <p>--</p> 
   <hr />
  </div>
- <div class="w3-container">
-  <h2>Displaying Quotes</h2>
-  <p>The w3-panel class can be used to display quotes:</p>
 
-  <div class="w3-panel w3-leftbar w3-light-grey">
 <div onclick='expand_to_fullscreen(this)' class="container-sm expandable" style="max-width:800px">
 <div id="quote-zone" class="mt-5 mb-3 rainbow-text"> 
     <div>
@@ -98,9 +94,6 @@
     <div><q id="quote-text"></q></div>
 </div>
 </div>
-  </div>
-</div>
-
 
 
 
