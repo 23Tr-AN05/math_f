@@ -1,4 +1,3 @@
-<script>
 // Data
 var quotes_list_old = [
     ["Si la vue d'un bureau encombré évoque un esprit encombré, alors que penser d'un bureau vide.","Albert Einstein"],
@@ -106,4 +105,3 @@ var i_citation = 0;
 load_quote();
 setTimeout(automatic_next_quote,20000);
 
-</script>       
