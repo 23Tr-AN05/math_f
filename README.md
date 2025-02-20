@@ -18,6 +18,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://pyscript.net/alpha/pyscript.css" rel="stylesheet"></link> 
+<script defer="defer" src="https://pyscript.net/alpha/pyscript.js"></script>
+ <link href="https://pyscript.net/alpha/pyscript.css" rel="stylesheet"></link>
+  <script defer="defer" src="https://pyscript.net/alpha/pyscript.js"></script> 
 
 
  <style>
@@ -123,10 +127,10 @@
   <br>#2<br>
   <py-script>print("hello les petits fous")</py-script> 
    <br>#3<br>
-   <meta charset="UTF-8"></meta> <title>pytest</title> <strong><link href="https://pyscript.net/alpha/pyscript.css" rel="stylesheet"></link> <script defer="defer" src="https://pyscript.net/alpha/pyscript.js"></script></strong>   <strong> <py-script> def wallis(n): pi = 2 for i in range(1,n): pi *= 4 * i ** 2 / (4 * i ** 2 - 1) return pi pi = wallis(100000) s = f"π est approximativement {pi:.3f}" print(s) </py-script></strong>  
+   <strong><link href="https://pyscript.net/alpha/pyscript.css" rel="stylesheet"></link> <script defer="defer" src="https://pyscript.net/alpha/pyscript.js"></script></strong>   <strong> <py-script> def wallis(n): pi = 2 for i in range(1,n): pi *= 4 * i ** 2 / (4 * i ** 2 - 1) return pi pi = wallis(100000) s = f"π est approximativement {pi:.3f}" print(s) </py-script></strong>  
 
  <br>#4<br>
-   <meta charset="UTF-8"></meta> <title>pytest</title> <link href="https://pyscript.net/alpha/pyscript.css" rel="stylesheet"></link> <script defer="defer" src="https://pyscript.net/alpha/pyscript.js"></script>  <strong> <h1 id="pi">xxx</h1></strong> <py-script> def wallis(n): pi = 2 for i in range(1,n): pi *= 4 * i ** 2 / (4 * i ** 2 - 1) return pi pi = wallis(100000) s = f"π est approximativement {pi:.3f}" <strong>pyscript.write('pi', s)</strong> </py-script>  
+    <strong> <h1 id="pi">xxx</h1></strong> <py-script> def wallis(n): pi = 2 for i in range(1,n): pi *= 4 * i ** 2 / (4 * i ** 2 - 1) return pi pi = wallis(100000) s = f"π est approximativement {pi:.3f}" <strong>pyscript.write('pi', s)</strong> </py-script>  
   #fine <p id="para2">-</p>
   <p>--</p> 
   <hr>
