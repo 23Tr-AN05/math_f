@@ -63,7 +63,7 @@
   <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Première')">Première G</button>
   <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Terminale')">Terminale G</button>
   <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Français')">Français Première-BAC</button>
-    <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'python')">python</button>
+  <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'python')">python</button>
   <!-- <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'Info')">Informatique</button>-->
 </div>
  <div id="Ac" class="w3-container city">
@@ -80,68 +80,6 @@
   <p>--</p> 
   <hr />
  </div>
-
-<div class="w3-container">
-  <h2>Displaying Quotes</h2>
-  <p>The w3-panel class can be used to display quotes:</p>
-
-  <div class="w3-panel w3-leftbar w3-light-grey">
-<div onclick='expand_to_fullscreen(this)' class="container-sm expandable" style="max-width:800px">
-<div id="quote-zone" class="mt-5 mb-3 rainbow-text"> 
-    <div>
-        <span id="quote-author"></span>   
-        <span id="quote-navigation">
-            <i class="bi bi-sm bi-caret-left" onclick="event.stopPropagation(); previous_quote()" tippy="précédente"></i>
-            <span id="numero-citation"></span> 
-            <i class="bi bi-sm bi-copy" onclick="event.stopPropagation(); copy_quote_to_clipboard()" tippy="copier"></i>
-            <i class="bi bi-sm bi-caret-right" onclick="event.stopPropagation(); next_quote()" tippy="suivante"></i>
-        </span>
-    </div>    
-    <div><q id="quote-text"></q></div>
-</div>
-</div>
-  </div>
-</div>
-
-<style>
-/* ---------------------------------------------------------------- */
-/* Citations */
-@keyframes rainbowText {
-    0% { color: hsl(240, 100%, 50%); } /* Bleu */
-    10% { color: hsl(280, 100%, 50%); } /* Violet */
-    20% { color: hsl(305, 100%, 40%); } /* Magenta */
-    30% { color: hsl(0, 100%, 50%); } /* Rouge */
-    40% { color: hsl(34, 100%, 50%); } /* Orange */
-    50% { color: hsl(60, 100%, 40%); } /* Jaune */
-    60% { color: hsl(109, 100%, 40%); } /* Vert */
-    70% { color: hsl(180, 100%, 40%); } /* Cyan */
-    80% { color: hsl(240, 100%, 50%); } /* Bleu */
-    100% { color: hsl(240, 100%, 50%); } /* Bleu */
-}
-.rainbow-text {
-    transition-duration: 1s;
-    animation: rainbowText 100s linear infinite;
-}
-#quote-text {
-    min-height: 2em;
-    font-style: italic;
-}
-#quote-author {
-    font-weight: bold;
-}
-#quote-navigation {
-    float: right;
-    text-align: right;
-    cursor:pointer;   
-}
-#quote-zone {
-    transition: color 1s;
-    width: 100%;
-    min-height: 90px;
-    border-radius: 10px;
-    padding: 20px;
-}
-</style>
 
   <p id="para2">-</p>
   <p>--</p> 
@@ -178,6 +116,7 @@
   <p>--</p> 
   <hr>
 </div>-->
+
 <div id="python" class="w3-container city" style="display:none">
    #1-<br>
    <link href="https://pyscript.net/alpha/pyscript.css" rel="stylesheet"></link> <script defer="defer" src="https://pyscript.net/alpha/pyscript.js"></script>

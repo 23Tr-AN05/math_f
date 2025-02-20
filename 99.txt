@@ -1,0 +1,20 @@
+<div class="w3-container">
+  <h2>Displaying Quotes</h2>
+  <p>The w3-panel class can be used to display quotes:</p>
+
+  <div class="w3-panel w3-leftbar w3-light-grey">
+<div onclick='expand_to_fullscreen(this)' class="container-sm expandable" style="max-width:800px">
+<div id="quote-zone" class="mt-5 mb-3 rainbow-text"> 
+    <div>
+        <span id="quote-author"></span>   
+        <span id="quote-navigation">
+            <i class="bi bi-sm bi-caret-left" onclick="event.stopPropagation(); previous_quote()" tippy="précédente"></i>
+            <span id="numero-citation"></span> 
+            <i class="bi bi-sm bi-copy" onclick="event.stopPropagation(); copy_quote_to_clipboard()" tippy="copier"></i>
+            <i class="bi bi-sm bi-caret-right" onclick="event.stopPropagation(); next_quote()" tippy="suivante"></i>
+        </span>
+    </div>    
+    <div><q id="quote-text"></q></div>
+</div>
+</div>
+</div>
