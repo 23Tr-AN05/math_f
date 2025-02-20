@@ -84,9 +84,9 @@
   <p id="para2">-</p>
   <p>--</p> 
   <hr>
-</div>
-<!--
-<div id="Six" class="w3-container city">
+ </div>
+ <!--
+ <div id="Six" class="w3-container city">
     <p id="para2">-</p>
     <p>--</p> 
  <hr> 
