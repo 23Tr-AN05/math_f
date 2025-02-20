@@ -13,7 +13,6 @@ var quotes_list_old = [
     ["Le monde est dangereux à vivre ! Non pas tant à cause de ceux qui font le mal, mais à cause de ceux qui regardent et laissent faire.","Albert Einstein"],
     ["On a traité de rêveurs et d'utopistes tous ceux qui, dans l'histoire, ont fait bouger les choses.","Abd al Malik"]
 ]
-
 var quotes_list = [
     ["La vie est telle une pièce de théâtre, mais sans répétitions. Alors chantez, pleurez, dansez, riez et vivez avant que le rideau ne se ferme et que la pièce ne se termine sans applaudissements.", "Charlie Chaplin"],
     ["Sans culture historique, sans culture politique, on ne peut que s'égarer.", "Edgar Morin"],
@@ -56,7 +55,6 @@ var quotes_list = [
     ["Le plus grand bonheur est celui que l'on trouve en servant les autres.", "Martin Luther King Jr."],
     ["On n'apporte rien au monde en se dévalorisant. C'est en laissant briller notre propre lumière que nous donnons inconsciemment aux autres le pouvoir d'en faire autant.", "Marianne Williamson"]
 ];
-
 // Functiosns
 function mix_quotes(tab) {
     var i_citation, j_citation, tmp;
@@ -66,42 +64,34 @@ function mix_quotes(tab) {
         tab[i_citation] = tab[j_citation];
         tab[j_citation] = tmp;}
     return tab;}
-
 function load_quote() {
     document.getElementById("quote-text").innerHTML = quotes_list[i_citation][0];
     document.getElementById("quote-author").innerHTML = quotes_list[i_citation][1];
     document.getElementById("numero-citation").innerHTML = (i_citation+1)+"/"+quotes_list.length;
 }
-
 function next_quote() {
     i_citation = (i_citation + 1) % quotes_list.length;
     document.getElementById("quote-text").innerHTML = quotes_list[i_citation][0];
     document.getElementById("quote-author").innerHTML = quotes_list[i_citation][1];
     document.getElementById("numero-citation").innerHTML = (i_citation+1)+"/"+quotes_list.length;
 }
-
 function automatic_next_quote() {
     next_quote();
     setTimeout(automatic_next_quote,20000);
 }
-
 function previous_quote() {
-    
-    i_citation = (i_citation - 1) % quotes_list.length;
+        i_citation = (i_citation - 1) % quotes_list.length;
     if (i_citation == -1) { i_citation =quotes_list.length-1}
     document.getElementById("quote-text").innerHTML = quotes_list[i_citation][0];
     document.getElementById("quote-author").innerHTML = quotes_list[i_citation][1];
     document.getElementById("numero-citation").innerHTML = (i_citation+1)+"/"+quotes_list.length;}
-
 function copy_quote_to_clipboard() {
     let text = document.getElementById("quote-text").innerHTML + " - " + document.getElementById("quote-author").innerHTML;
     navigator.clipboard.writeText(text);
     notifier("success", `Citation copiée<br/>dans le presse papier.`, 5);
 }
-
 // Main program
 quotes_list = mix_quotes(quotes_list);
 var i_citation = 0;
 load_quote();
 setTimeout(automatic_next_quote,20000);
-
