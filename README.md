@@ -74,13 +74,12 @@
    <p id="para2">Bienvenue</p>
   <p id="para3">Sur ce site, vous trouverez les cours de mathématiques ainsi de français, qui peuvent vous servir.<br /> En particulier pour ceux qui se préparent au Baccalauréat.</p>
    <div style="border: 1px solid black; padding: 10px;"><div  class="flotte"><img src="image/Germain.jpeg" alt="Nouveau !" /><center><p id="para3"></div>
-    <p> Toutes les nouveautés, rien que des nouveautés.</p><div class="flotte2"><img src="image/Dubreil-Jacotin.jpg" alt="Nouveau !" /><center><p id="para3" style="color:red;">Marie-Louise Dubreil-Jacotin (1905-1972)</p><br><p id="para3"> est une mathématicienne française, spécialiste d'algèbre et enseingnante française</p><br><p id="para3">Spécialisée en algèbre. Elle arrive 2ème au classement du concours d’entrée de ENS. Or, l’école est réservée encore aux hommes, ainsi on lui rétrograde à la 21ème position dont après les 20 premiers qui sont eux admis.
+    <p> Toutes les nouveautés, rien que des nouveautés.</p><p class="flotte2"><img src="image/Dubreil-Jacotin.jpg" alt="Nouveau !" /><center><font id="para3" style="color:red;">Marie-Louise Dubreil-Jacotin (1905-1972)</font><br><font id="para3"> est une mathématicienne française, spécialiste d'algèbre et enseingnante française</font><center><br><font id="para3">Spécialisée en algèbre. Elle arrive 2ème au classement du concours d’entrée de ENS. Or, l’école est réservée encore aux hommes, ainsi on lui rétrograde à la 21ème position dont après les 20 premiers qui sont eux admis.
     Grâce à  une amie, l’affaire est rendue public. Ce qui implique le changement des règles d’entrée. 
     Elle soutient sa thèse, en 1934, sur la mécanisme des fluides.
     Elle est nommée chargée de cours à la faculté des sciences de l'université de Rennes en 1938, suppléante d'un professeur titulaire2, puis maître de conférences de mathématiques générales à Lyon de 1939 à 1941.
-    En 1943, elle est nommée professeur titulaire de la chaire de calcul différentiel et intégral à la faculté des sciences de l'université de Poitiers.  </p>   
-    </div>
-    </div>
+    En 1943, elle est nommée professeur titulaire de la chaire de calcul différentiel et intégral à la faculté des sciences de l'université de Poitiers. </font> </p>   
+   </div>
  <br />
   <div id="center">
   <p id="para33">Si vous avez des questions vous pouvez envoyer un mail en choissisant la matière concernée. Je vous réponderai plutôt possible par mail ou vous pouvez consulter l'onglet "forum", où je mettrais certaines questions avec leur réponse. 
