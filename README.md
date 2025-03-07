@@ -73,12 +73,19 @@
  <div id="Ac" class="w3-container city">
    <p id="para2">Bienvenue</p>
   <p id="para3">Sur ce site, vous trouverez les cours de mathématiques ainsi de français, qui peuvent vous servir.<br /> En particulier pour ceux qui se préparent au Baccalauréat.</p>
-   <div style="border: 1px solid black; padding: 10px;"><div  class="flotte"><img src="image/Germain.jpeg" alt="Nouveau !" /><p id="para3"></p></div>
-    <p> Toutes les nouveautés, rien que des nouveautés.</p><p class="flotte2"><img src="image/Dubreil-Jacotin.jpg" alt="Nouveau !" /><center><font id="para3" style="color:red;">Marie-Louise Dubreil-Jacotin (1905-1972)</font><br><font id="para3"> est une mathématicienne française, spécialiste d'algèbre et enseingnante française</font></center><br><font id="para3">Spécialisée en algèbre. Elle arrive 2ème au classement du concours d’entrée de ENS. Or, l’école est réservée encore aux hommes, ainsi on lui rétrograde à la 21ème position dont après les 20 premiers qui sont eux admis.
-    Grâce à  une amie, l’affaire est rendue public. Ce qui implique le changement des règles d’entrée. 
-    Elle soutient sa thèse, en 1934, sur la mécanisme des fluides.
-    Elle est nommée chargée de cours à la faculté des sciences de l'université de Rennes en 1938, suppléante d'un professeur titulaire2, puis maître de conférences de mathématiques générales à Lyon de 1939 à 1941.
-    En 1943, elle est nommée professeur titulaire de la chaire de calcul différentiel et intégral à la faculté des sciences de l'université de Poitiers. </font> </p>   
+   <div style="border: 1px solid black; padding: 10px;">
+      <p style="float:left"><img src="image/Germain.jpeg" /></p><p><center><font id="para3" style="color:red;">Sophie Germain (1776-1831)</font><br><font id="para3"> est une mathématicienne française, spécialiste d'algèbre et enseingnante française</font></center><br><font id="para3">Sophie Germain était une mathématicienne et physicienne française, pionnière dans un domaine dominé par les hommes à son époque. Malgré les obstacles liés à son sexe, elle a fait d'importantes contributions, notamment en théorie des nombres et en élasticité. Elle est surtout connue pour ses travaux sur le dernier théorème de Fermat, qu'elle a abordé avec des méthodes innovantes, et pour ses recherches en physique, notamment sur les vibrations des corps élastiques. Elle a reçu la reconnaissance de mathématiciens comme Carl Friedrich Gauss, qui lui a adressé des lettres de soutien. Sophie Germain a brisé des barrières et a ouvert la voie pour les femmes dans les sciences. </font></p>
+    <div style="clear:both"></div>
+    <p style="float:left"><img src="image/Dubreil-Jacotin.jpg" /></p><p><center><font id="para3" style="color:red;">Marie-Louise Dubreil-Jacotin (1905-1972)</font><br><font id="para3"> est une mathématicienne française, spécialiste d'algèbre et enseingnante française</font></center><br><font id="para3">Marie-Louise Dubreil-Jacotin (1905-1972) était une mathématicienne française de renom, notamment reconnue pour sa contribution à l'algèbre et à la théorie des groupes. Après avoir obtenu la deuxième place au concours d'entrée de l'École Normale Supérieure (ENS) en 1925, elle a poursuivi une carrière brillante dans le monde des mathématiques.
+    <br>
+    En 1941, elle obtient un poste de maître de conférences à la Faculté des Sciences de l'Université de Paris, une position qui marquait un tournant important dans sa carrière. Elle y enseigne les mathématiques tout en continuant ses recherches. En 1943, elle est nommée professeur à la Faculté des Sciences de l'Université de Toulouse, où elle exerce jusqu'à la fin de sa carrière.
+    <br>
+    Parallèlement à son enseignement, Marie-Louise Dubreil-Jacotin soutient sa thèse en 1932, intitulée "Recherches sur les groupes de transformations", sous la direction de Évariste Galois. Cette thèse marquait une étape importante dans le développement de la théorie des groupes et a permis à Dubreil-Jacotin de se faire un nom dans le milieu scientifique.
+    <br>Sa carrière fut marquée par des contributions importantes aux mathématiques, et elle est restée une figure influente dans le développement des mathématiques en France, en particulier pour avoir ouvert la voie aux femmes dans ce domaine.</font></p>
+    <div style="clear:both"></div>
+
+
+
    </div>
    <p style="float:left"><img src="image/Dubreil-Jacotin.jpg" /></p><p><center><font id="para3" style="color:red;">Marie-Louise Dubreil-Jacotin (1905-1972)</font><br><font id="para3"> est une mathématicienne française, spécialiste d'algèbre et enseingnante française</font></center><br><font id="para3">Spécialisée en algèbre. Elle arrive 2ème au classement du concours d’entrée de ENS. Or, l’école est réservée encore aux hommes, ainsi on lui rétrograde à la 21ème position dont après les 20 premiers qui sont eux admis.
     Grâce à  une amie, l’affaire est rendue public. Ce qui implique le changement des règles d’entrée. 
