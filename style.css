@@ -86,7 +86,12 @@
         font-size:20px;
         text-align:center;
     }
-    
+    #flotte {
+	     float:left;
+    }
+    #flotte2 {
+	     float:right;
+    }
 
 
 .collapsible {

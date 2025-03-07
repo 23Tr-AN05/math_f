@@ -73,6 +73,9 @@
  <div id="Ac" class="w3-container city">
    <p id="para2">Bienvenue</p>
   <p id="para3">Sur ce site, vous trouverez les cours de mathématiques ainsi de français, qui peuvent vous servir.<br /> En particulier pour ceux qui se préparent au Baccalauréat.</p>
+   <div style="border: 1px solid black; padding: 10px;"><p class="flotte"><img src="image/Germain.jpeg" alt="Nouveau !" />ssss</p>
+    <p> Toutes les nouveautés, rien que des nouveautés.</p><p class="flotte2"><img src="image/Dubreil-Jacotin.jpg" alt="Nouveau !" /></p>
+    <p> Toutes les nouveautés, rien que des nouveautés.</p></div>
  <br />
   <div id="center">
   <p id="para33">Si vous avez des questions vous pouvez envoyer un mail en choissisant la matière concernée. Je vous réponderai plutôt possible par mail ou vous pouvez consulter l'onglet "forum", où je mettrais certaines questions avec leur réponse. 
