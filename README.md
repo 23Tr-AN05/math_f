@@ -910,7 +910,7 @@ hr {
     <h2 class="hand-title"><i class="fas fa-star"></i> Première Spécialité</h2>
 
     <ul>
-      <li><a href="#"><i class="fas fa-clock"></i> 📄 Emploi du temps</a></li>
+      <li><a href="/mat/equadif.pdf"><i class="fas fa-clock"></i> 📄 Emploi du temps</a></li>
       <li><a href="#"><i class="fas fa-book"></i> 📘 Programme de l'année</a></li>
     </ul>
 
