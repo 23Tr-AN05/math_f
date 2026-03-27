@@ -680,6 +680,27 @@ ul li a:hover {
   }
 }
 
+/* CONTENU CHARGÉ DYNAMIQUEMENT */
+.dynamic-content {
+  min-height: 400px;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 50px;
+  color: #1e90ff;
+}
+
+.loading-spinner i {
+  font-size: 3em;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 /* POPUP */
 .popup {
   display: none;
@@ -784,6 +805,9 @@ hr {
     <button onclick="openSection('Accueil')" id="nav-Accueil">
       <i class="fas fa-home"></i> Accueil
     </button>
+    <button onclick="openSection('Sixieme')" id="nav-Sixieme">
+      <i class="fas fa-child"></i> 6ème
+    </button>
     <button onclick="openSection('Premiere')" id="nav-Premiere">
       <i class="fas fa-graduation-cap"></i> Première
     </button>
@@ -801,7 +825,7 @@ hr {
   <!-- SECTION ACCUEIL -->
   <div id="Accueil" class="section active">
     <h2><i class="fas fa-home"></i> Bienvenue</h2>
-    <p>Site de cours et ressources pour le Baccalauréat.</p>
+    <p>Site de cours et ressources pour le Baccalauréat et le Collège.</p>
 
     <hr>
 
@@ -867,6 +891,16 @@ hr {
       <div class="citation-timer">
         <span><i class="fas fa-clock"></i> Changement toutes les <span id="timer-interval">20</span> secondes</span>
         <span><i class="fas fa-layer-group"></i> <span id="citation-count">0</span> citations disponibles</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION SIXIEME (contenu chargé dynamiquement) -->
+  <div id="Sixieme" class="section">
+    <div id="sixieme-content" class="dynamic-content">
+      <div class="loading-spinner">
+        <i class="fas fa-spinner"></i>
+        <p>Chargement du contenu de 6ème...</p>
       </div>
     </div>
   </div>
@@ -1166,9 +1200,8 @@ let citations = [];
 let currentCitationIndex = 0;
 let autoPlayInterval = null;
 let autoPlayActive = true;
-const CITATION_INTERVAL = 20000; // 20 secondes
+const CITATION_INTERVAL = 20000;
 
-// Charger les citations depuis le fichier JSON
 async function loadCitations() {
     try {
         const response = await fetch('citations.json');
@@ -1310,6 +1343,36 @@ function toggleAutoPlay() {
     }
 }
 
+// ============ CHARGEMENT DYNAMIQUE DU CONTENU 6ÈME ============
+async function loadSixiemeContent() {
+    const container = document.getElementById('sixieme-content');
+    if (!container) return;
+    
+    try {
+        const response = await fetch('six.html');
+        const html = await response.text();
+        container.innerHTML = html;
+        
+        // Réinitialiser les accordéons après chargement
+        document.querySelectorAll("#Sixieme .accordion").forEach(btn => {
+            btn.addEventListener("click", function() {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                panel.classList.toggle("show");
+            });
+        });
+    } catch (error) {
+        console.error('Erreur lors du chargement du contenu 6ème:', error);
+        container.innerHTML = `
+            <div style="text-align: center; padding: 50px; color: #ff6b6b;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 3em;"></i>
+                <p>Erreur lors du chargement du contenu de 6ème.</p>
+                <p>Vérifiez que le fichier six.html existe dans le même dossier.</p>
+            </div>
+        `;
+    }
+}
+
 // ============ NAVIGATION ============
 function openSection(id) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
@@ -1319,6 +1382,11 @@ function openSection(id) {
     });
     const activeBtn = document.getElementById(`nav-${id}`);
     if (activeBtn) activeBtn.classList.add('active');
+    
+    // Charger le contenu de 6ème uniquement quand on clique dessus
+    if (id === 'Sixieme') {
+        loadSixiemeContent();
+    }
 }
 
 // ============ ACCORDION ============
