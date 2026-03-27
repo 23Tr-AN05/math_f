@@ -80,12 +80,12 @@ header p {
 }
 
 .nav-bar button, .nav-bar a {
-  padding: 10px 24px;
+  padding: 10px 18px;
   border: none;
   background: transparent;
   color: #333;
   cursor: pointer;
-  font-size: 0.95em;
+  font-size: 0.9em;
   font-weight: 600;
   border-radius: 40px;
   transition: all 0.3s ease;
@@ -440,68 +440,183 @@ ul li a:hover {
   }
 }
 
-/* LOGIN BOX */
-.login-box {
-  max-width: 400px;
-  margin: 20px auto;
+/* CONTENU CHARGÉ DYNAMIQUEMENT */
+.dynamic-content {
+  min-height: 400px;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 50px;
+  color: #1e90ff;
+}
+
+.loading-spinner i {
+  font-size: 3em;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* SECTION CITATIONS */
+.citations-section {
+  margin-top: 30px;
   padding: 25px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.login-box h2 {
-  text-align: center;
-  border-left: none;
+.citations-section::before {
+  content: '"';
+  font-family: 'Pacifico', cursive;
+  font-size: 120px;
+  position: absolute;
+  left: 15px;
+  top: -20px;
+  opacity: 0.1;
+  color: #1e90ff;
+}
+
+.citations-section h3 {
+  color: #1e90ff;
   margin-bottom: 20px;
-  font-size: 1.4em;
+  font-size: 1.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.login-box input {
+.citation-container {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.citation-text {
+  font-style: italic;
+  font-size: 1.2em;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 80%;
+  animation: fadeInCitation 0.8s ease;
+}
+
+.citation-author {
+  font-style: normal;
+  font-size: 0.95em;
+  color: #1e90ff;
+  text-align: right;
   width: 100%;
-  padding: 10px 12px;
-  margin: 8px 0;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 0.9em;
-  transition: all 0.3s ease;
+  margin-top: 10px;
+  font-weight: 500;
+  animation: fadeInCitation 0.8s ease;
+  position: relative;
+  padding-right: 20px;
 }
 
-.login-box input:focus {
-  outline: none;
-  border-color: #1e90ff;
-}
-
-.login-box button {
-  width: 100%;
-  padding: 10px;
-  background: linear-gradient(135deg, #1e90ff, #0066cc);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1em;
+.citation-author::before {
+  content: "— ";
   font-weight: bold;
+}
+
+.citation-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #ccc;
+  border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 10px;
 }
 
-.login-box button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(30,144,255,0.3);
+.dot.active {
+  background: #1e90ff;
+  width: 20px;
+  border-radius: 10px;
 }
 
-.error-message {
-  color: #ff6b6b;
+.dot:hover {
+  background: #1e90ff;
+  transform: scale(1.2);
+}
+
+.citation-timer {
+  font-size: 0.7em;
+  color: #888;
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.citation-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.citation-controls button {
+  background: rgba(30,144,255,0.1);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #1e90ff;
   font-size: 0.85em;
 }
 
-.success-message {
-  color: #51cf66;
-  margin-top: 10px;
-  font-size: 0.85em;
+.citation-controls button:hover {
+  background: #1e90ff;
+  color: white;
+  transform: scale(1.05);
+}
+
+@keyframes fadeInCitation {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* INFOS */
+.info-list {
+  margin-top: 20px;
+}
+
+.info-list li {
+  background: #fff;
+  border-left-color: #ffa500;
+}
+
+hr {
+  margin: 15px 0;
+  border: none;
+  border-top: 1px solid #e0e0e0;
 }
 
 /* POPUP */
@@ -574,20 +689,4 @@ ul li a:hover {
 
 .btn:hover {
   transform: translateY(-2px);
-}
-
-/* INFOS */
-.info-list {
-  margin-top: 20px;
-}
-
-.info-list li {
-  background: #fff;
-  border-left-color: #ffa500;
-}
-
-hr {
-  margin: 15px 0;
-  border: none;
-  border-top: 1px solid #e0e0e0;
 }

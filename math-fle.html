@@ -1,0 +1,387 @@
+<div>
+    <h2 class="hand-title"><i class="fas fa-language"></i> Espace Math-FLE</h2>
+    <p style="margin-bottom: 20px;">Français Langue Étrangère - Mathématiques pour les étudiants internationaux.</p>
+
+    <!-- Section de connexion -->
+    <div id="fle-login-box" class="login-box">
+        <h2><i class="fas fa-language"></i> Accès Math-FLE</h2>
+        <p>Espace réservé aux étudiants FLE</p>
+        
+        <input type="text" id="fle-username" placeholder="Identifiant">
+        <input type="password" id="fle-password" placeholder="Mot de passe">
+        <button onclick="checkFLELogin()">Se connecter</button>
+        <div id="fle-login-message"></div>
+        <p style="margin-top: 15px; font-size: 0.8em; color: #888;">
+            <i class="fas fa-info-circle"></i> Identifiant: fle | Mot de passe: math2026
+        </p>
+        <p style="font-size: 0.7em; color: #aaa;">
+            <i class="fas fa-graduation-cap"></i> Accès étudiants internationaux
+        </p>
+    </div>
+
+    <!-- Contenu protégé (caché par défaut) -->
+    <div id="fle-protected-content" class="protected-content" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2><i class="fas fa-lock-open"></i> Bienvenue dans l'espace Math-FLE</h2>
+            <button onclick="logoutFLE()" class="btn logout-btn" style="margin: 0;">
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
+            </button>
+        </div>
+        
+        <p style="margin-bottom: 25px;">Ressources spécialement conçues pour les étudiants de français langue étrangère. Apprenez le vocabulaire mathématique et les concepts clés en français.</p>
+
+        <!-- Niveaux de langue -->
+        <div style="display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;">
+            <button class="btn" onclick="showFLELevel('debutant')" id="btn-debutant"><i class="fas fa-star"></i> Débutant (A1-A2)</button>
+            <button class="btn" onclick="showFLELevel('intermediaire')" id="btn-intermediaire"><i class="fas fa-star-half-alt"></i> Intermédiaire (B1-B2)</button>
+            <button class="btn" onclick="showFLELevel('avance')" id="btn-avance"><i class="fas fa-gem"></i> Avancé (C1-C2)</button>
+        </div>
+
+        <!-- Contenu Débutant -->
+        <div id="fle-debutant" class="fle-level-content">
+            <h3><i class="fas fa-star"></i> Niveau Débutant (A1-A2)</h3>
+            
+            <button class="accordion">📚 Vocabulaire de base - Les nombres</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> 📝 Fiche : Les nombres de 0 à 100</a></li>
+                    <li><a href="#"><i class="fas fa-headphones"></i> 🎧 Audio : Écouter et répéter les nombres</a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard"></i> ✏️ Exercices : Écrire les nombres en lettres</a></li>
+                    <li><a href="#"><i class="fas fa-check-circle"></i> ✅ Correction</a></li>
+                    <li><a href="#"><i class="fas fa-gamepad"></i> 🎮 Jeu : Le loto des nombres</a></li>
+                </ul>
+            </div>
+
+            <button class="accordion">➕ Les opérations de base</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> 📝 Fiche : Addition, soustraction, multiplication, division</a></li>
+                    <li><a href="#"><i class="fas fa-headphones"></i> 🎧 Audio : Comprendre les consignes</a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard"></i> ✏️ Exercices : Calculer et expliquer en français</a></li>
+                    <li><a href="#"><i class="fas fa-video"></i> 🎥 Vidéo : Les mots clés des opérations</a></li>
+                </ul>
+            </div>
+
+            <button class="accordion">📐 Formes géométriques simples</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> 📝 Fiche : Carré, rectangle, cercle, triangle</a></li>
+                    <li><a href="#"><i class="fas fa-headphones"></i> 🎧 Audio : Description des formes</a></li>
+                    <li><a href="#"><i class="fas fa-draw-polygon"></i> 📐 Exercices : Tracer et nommer</a></li>
+                    <li><a href="#"><i class="fas fa-video"></i> 🎥 Vidéo : Le vocabulaire de la géométrie</a></li>
+                </ul>
+            </div>
+
+            <button class="accordion">⏰ Les mesures et le temps</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> 📝 Fiche : L'heure, les durées, les unités</a></li>
+                    <li><a href="#"><i class="fas fa-headphones"></i> 🎧 Audio : Dire l'heure en français</a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard"></i> ✏️ Exercices : Lire un horaire</a></li>
+                    <li><a href="#"><i class="fas fa-gamepad"></i> 🎮 Jeu : Quelle heure est-il ?</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contenu Intermédiaire -->
+        <div id="fle-intermediaire" class="fle-level-content" style="display: none;">
+            <h3><i class="fas fa-star-half-alt"></i> Niveau Intermédiaire (B1-B2)</h3>
+            
+            <button class="accordion">📊 Vocabulaire avancé - Fractions et pourcentages</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> 📝 Fiche : Lire et écrire les fractions</a></li>
+                    <li><a href="#"><i class="fas fa-headphones"></i> 🎧 Audio : Comprendre les pourcentages dans les médias</a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard"></i> ✏️ Exercices : Problèmes de pourcentages</a></li>
+                    <li><a href="#"><i class="fas fa-video"></i> 🎥 Vidéo : Les fractions dans la vie quotidienne</a></li>
+                </ul>
+            </div>
+
+            <button class="accordion">📈 Les fonctions - Vocabulaire et interprétation</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> 📝 Fiche : Variables, images, antécédents</a></li>
+                    <li><a href="#"><i class="fas fa-headphones"></i> 🎧 Audio : Décrire une courbe</a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard"></i> ✏️ Exercices : Interpréter un graphique</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> 📈 Vocabulaire des variations</a></li>
+                </ul>
+            </div>
+
+            <button class="accordion">📐 Géométrie - Le vocabulaire technique</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> 📝 Fiche : Perpendiculaire, parallèle, symétrie</a></li>
+                    <li><a href="#"><i class="fas fa-headphones"></i> 🎧 Audio : Consignes de construction</a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard"></i> ✏️ Exercices : Suivre une consigne géométrique</a></li>
+                    <li><a href="#"><i class="fas fa-video"></i> 🎥 Vidéo : Le vocabulaire des angles</a></li>
+                </ul>
+            </div>
+
+            <button class="accordion">📊 Probabilités et statistiques</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> 📝 Fiche : Vocabulaire des probabilités</a></li>
+                    <li><a href="#"><i class="fas fa-headphones"></i> 🎧 Audio : Comprendre des sondages</a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard"></i> ✏️ Exercices : Lire et interpréter des données</a></li>
+                    <li><a href="#"><i class="fas fa-dice"></i> 🎲 Expériences aléatoires</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contenu Avancé -->
+        <div id="fle-avance" class="fle-level-content" style="display: none;">
+            <h3><i class="fas fa-gem"></i> Niveau Avancé (C1-C2)</h3>
+            
+            <button class="accordion">📝 Rédaction mathématique</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> 📝 Guide : Rédiger une démonstration en français</a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard"></i> ✏️ Exercices : Rédiger des solutions complètes</a></li>
+                    <li><a href="#"><i class="fas fa-check-circle"></i> ✅ Corrections commentées</a></li>
+                    <li><a href="#"><i class="fas fa-video"></i> 🎥 Vidéo : La structure d'une démonstration</a></li>
+                </ul>
+            </div>
+
+            <button class="accordion">🎤 Grand Oral - Préparation</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> 📝 Guide : Présenter un sujet mathématique</a></li>
+                    <li><a href="#"><i class="fas fa-headphones"></i> 🎧 Audio : Exemples d'oral</a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard"></i> ✏️ Exercices : Préparer son exposé</a></li>
+                    <li><a href="#"><i class="fas fa-microphone-alt"></i> 🎤 Conseils pour l'oral</a></li>
+                </ul>
+            </div>
+
+            <button class="accordion">📚 Vocabulaire avancé - Analyse et algèbre</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> 📝 Fiche : Vocabulaire des limites et dérivées</a></li>
+                    <li><a href="#"><i class="fas fa-headphones"></i> 🎧 Audio : Cours magistral en français</a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard"></i> ✏️ Exercices : Compréhension de textes mathématiques</a></li>
+                    <li><a href="#"><i class="fas fa-video"></i> 🎥 Vidéo : Conférences mathématiques</a></li>
+                </ul>
+            </div>
+
+            <button class="accordion">🌍 Mathématiques et culture française</button>
+            <div class="panel">
+                <ul>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> 📝 Lecture : Les grands mathématiciens français</a></li>
+                    <li><a href="#"><i class="fas fa-headphones"></i> 🎧 Audio : Podcasts mathématiques en français</a></li>
+                    <li><a href="#"><i class="fas fa-chalkboard"></i> ✏️ Exercices : Comprendre des articles scientifiques</a></li>
+                    <li><a href="#"><i class="fas fa-video"></i> 🎥 Vidéo : Documentaires sur l'histoire des maths</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Ressources communes -->
+        <div style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #e8f0ff 0%, #d9e8ff 100%); border-radius: 16px;">
+            <h3><i class="fas fa-globe"></i> Ressources multilingues</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
+                <div>
+                    <h4><i class="fas fa-language"></i> Français - Anglais</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-download"></i> Glossaire des termes mathématiques</a></li>
+                        <li><a href="#"><i class="fas fa-play-circle"></i> Traduction des consignes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4><i class="fas fa-language"></i> Français - Arabe</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-download"></i> Glossaire arabe-français</a></li>
+                        <li><a href="#"><i class="fas fa-play-circle"></i> Vocabulaire illustré</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4><i class="fas fa-language"></i> Français - Espagnol</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-download"></i> Glossaire espagnol-français</a></li>
+                        <li><a href="#"><i class="fas fa-play-circle"></i> Exercices bilingues</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4><i class="fas fa-language"></i> Français - Portugais</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-download"></i> Glossaire portugais-français</a></li>
+                        <li><a href="#"><i class="fas fa-play-circle"></i> Ressources FLE</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forum d'entraide -->
+        <div style="margin-top: 25px; padding: 15px; background: #f0f7ff; border-radius: 12px; text-align: center;">
+            <h3><i class="fas fa-comments"></i> Espace d'entraide</h3>
+            <p>Posez vos questions sur le vocabulaire mathématique en français.</p>
+            <button class="btn" onclick="alert('Forum en cours de développement !')">
+                <i class="fas fa-comment-dots"></i> Accéder au forum
+            </button>
+            <button class="btn" style="margin-left: 10px;" onclick="alert('Chat avec des tuteurs à venir !')">
+                <i class="fas fa-chalkboard-user"></i> Tuteur FLE
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+// ============ FONCTIONS DE CONNEXION MATH-FLE ============
+function checkFLELogin() {
+    const username = document.getElementById('fle-username').value;
+    const password = document.getElementById('fle-password').value;
+    const messageDiv = document.getElementById('fle-login-message');
+    
+    if(username === "fle" && password === "math2026") {
+        document.getElementById('fle-login-box').style.display = 'none';
+        document.getElementById('fle-protected-content').style.display = 'block';
+        messageDiv.innerHTML = '<p class="success-message"><i class="fas fa-check-circle"></i> Connexion réussie ! Bienvenue dans l\'espace Math-FLE.</p>';
+        
+        // Sauvegarder l'état de connexion
+        localStorage.setItem('fleLoggedIn', 'true');
+    } else {
+        messageDiv.innerHTML = '<p class="error-message"><i class="fas fa-exclamation-triangle"></i> Identifiant ou mot de passe incorrect.<br>Identifiant: fle | Mot de passe: math2026</p>';
+    }
+}
+
+function logoutFLE() {
+    document.getElementById('fle-protected-content').style.display = 'none';
+    document.getElementById('fle-login-box').style.display = 'block';
+    document.getElementById('fle-username').value = '';
+    document.getElementById('fle-password').value = '';
+    document.getElementById('fle-login-message').innerHTML = '';
+    
+    // Supprimer l'état de connexion
+    localStorage.removeItem('fleLoggedIn');
+}
+
+// Afficher le niveau sélectionné
+function showFLELevel(level) {
+    // Cacher tous les contenus
+    document.getElementById('fle-debutant').style.display = 'none';
+    document.getElementById('fle-intermediaire').style.display = 'none';
+    document.getElementById('fle-avance').style.display = 'none';
+    
+    // Afficher le niveau sélectionné
+    document.getElementById(`fle-${level}`).style.display = 'block';
+    
+    // Mettre à jour le style des boutons
+    const buttons = ['debutant', 'intermediaire', 'avance'];
+    buttons.forEach(btn => {
+        const element = document.getElementById(`btn-${btn}`);
+        if (btn === level) {
+            element.style.background = 'linear-gradient(135deg, #1e90ff, #0066cc)';
+            element.style.color = 'white';
+        } else {
+            element.style.background = 'linear-gradient(135deg, #f8f9fa, #e9ecef)';
+            element.style.color = '#1e90ff';
+        }
+    });
+}
+
+// Vérifier si l'utilisateur était déjà connecté
+function checkFLEStoredLogin() {
+    if (localStorage.getItem('fleLoggedIn') === 'true') {
+        const loginBox = document.getElementById('fle-login-box');
+        const protectedContent = document.getElementById('fle-protected-content');
+        if (loginBox && protectedContent) {
+            loginBox.style.display = 'none';
+            protectedContent.style.display = 'block';
+        }
+    }
+}
+
+// Initialiser les accordéons pour Math-FLE
+function initFLEAccordions() {
+    document.querySelectorAll("#fle-protected-content .accordion").forEach(btn => {
+        btn.addEventListener("click", function() {
+            this.classList.toggle("active");
+            let panel = this.nextElementSibling;
+            if (panel) {
+                panel.classList.toggle("show");
+            }
+        });
+    });
+}
+
+// Exécuter l'initialisation après chargement du contenu
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        checkFLEStoredLogin();
+        initFLEAccordions();
+    });
+} else {
+    checkFLEStoredLogin();
+    initFLEAccordions();
+}
+</script>
+
+<style>
+/* Styles spécifiques pour Math-FLE */
+#fle-protected-content .accordion {
+    background: #eef3f8;
+    padding: 12px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 12px;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+#fle-protected-content .accordion:hover {
+    background: #1e90ff;
+    color: white;
+}
+
+#fle-protected-content .accordion::after {
+    content: '\f107';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    transition: transform 0.3s;
+}
+
+#fle-protected-content .accordion.active::after {
+    transform: rotate(180deg);
+}
+
+#fle-protected-content .panel {
+    display: none;
+    padding: 12px 15px;
+    background: #f9f9f9;
+    border-radius: 0 0 10px 10px;
+    margin-top: -5px;
+}
+
+#fle-protected-content .panel.show {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+.fle-level-content {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a5a) !important;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #ee5a5a, #dd4a4a) !important;
+    transform: translateY(-2px);
+}
+</style>
