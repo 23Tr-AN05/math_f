@@ -12,6 +12,9 @@
 <!-- Font Awesome pour les icônes -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+<style>
+
+</style>
 </head>
 
 <body>
@@ -117,7 +120,7 @@
     </div>
   </div>
 
-  <!-- SECTIONS DYNAMIQUES (chargement depuis fichiers externes) -->
+  <!-- SECTIONS DYNAMIQUES -->
   <div id="Sixieme" class="section"><div id="sixieme-content" class="dynamic-content"><div class="loading-spinner"><i class="fas fa-spinner"></i><p>Chargement du contenu de 6ème...</p></div></div></div>
   <div id="Cinquieme" class="section"><div id="cinquieme-content" class="dynamic-content"><div class="loading-spinner"><i class="fas fa-spinner"></i><p>Chargement du contenu de 5ème...</p></div></div></div>
   <div id="Quatrieme" class="section"><div id="quatrieme-content" class="dynamic-content"><div class="loading-spinner"><i class="fas fa-spinner"></i><p>Chargement du contenu de 4ème...</p></div></div></div>
@@ -391,8 +394,8 @@ async function loadContent(level, file) {
         const html = await response.text();
         container.innerHTML = html;
         
-        // Réinitialiser les accordéons après chargement
         setTimeout(() => {
+            // Accordéons généraux pour tous les niveaux
             document.querySelectorAll(`#${level} .accordion`).forEach(btn => {
                 btn.addEventListener("click", function() {
                     this.classList.toggle("active");
@@ -400,11 +403,107 @@ async function loadContent(level, file) {
                     if (panel) panel.classList.toggle("show");
                 });
             });
+            
+            // Initialisation spécifique pour Math-FLE
+            if (level === 'mathfle') {
+                initFLEAccordions();
+                checkFLEStoredLogin();
+            }
         }, 100);
     } catch (error) {
         console.error('Erreur lors du chargement:', error);
-        container.innerHTML = `<div style="text-align: center; padding: 50px; color: #ff6b6b;"><i class="fas fa-exclamation-triangle" style="font-size: 3em;"></i><p>Erreur lors du chargement du contenu.</p><p>Vérifiez que le fichier ${file} existe dans le même dossier.</p></div>`;
+        container.innerHTML = `<div style="text-align: center; padding: 50px; color: #ff6b6b;"><i class="fas fa-exclamation-triangle" style="font-size: 3em;"></i><p>Erreur lors du chargement du contenu.</p><p>Vérifiez que le fichier ${file} existe.</p></div>`;
     }
+}
+
+// ============ FONCTIONS MATH-FLE ============
+const FLE_USERNAME = "eleve";
+const FLE_PASSWORD = "mathematiques2026";
+
+function checkFLELogin() {
+    const username = document.getElementById('fle-username');
+    const password = document.getElementById('fle-password');
+    const messageDiv = document.getElementById('fle-login-message');
+    
+    if (!username || !password) return;
+    
+    if(username.value === FLE_USERNAME && password.value === FLE_PASSWORD) {
+        const loginContainer = document.getElementById('fle-login-container');
+        const protectedContainer = document.getElementById('fle-protected-container');
+        
+        if (loginContainer) loginContainer.style.display = 'none';
+        if (protectedContainer) protectedContainer.style.display = 'block';
+        
+        if (messageDiv) {
+            messageDiv.innerHTML = '<div class="fle-success-message"><i class="fas fa-check-circle"></i> Connexion réussie !</div>';
+            setTimeout(() => { messageDiv.innerHTML = ''; }, 2000);
+        }
+        localStorage.setItem('fleLoggedIn', 'true');
+        
+        setTimeout(() => { initFLEAccordions(); }, 100);
+    } else {
+        if (messageDiv) {
+            messageDiv.innerHTML = '<div class="fle-error-message"><i class="fas fa-exclamation-triangle"></i> Identifiant ou mot de passe incorrect.</div>';
+            setTimeout(() => { messageDiv.innerHTML = ''; }, 3000);
+        }
+    }
+}
+
+function logoutFLE() {
+    const protectedContainer = document.getElementById('fle-protected-container');
+    const loginContainer = document.getElementById('fle-login-container');
+    const username = document.getElementById('fle-username');
+    const password = document.getElementById('fle-password');
+    const messageDiv = document.getElementById('fle-login-message');
+    
+    if (protectedContainer) protectedContainer.style.display = 'none';
+    if (loginContainer) loginContainer.style.display = 'flex';
+    if (username) username.value = '';
+    if (password) password.value = '';
+    if (messageDiv) messageDiv.innerHTML = '';
+    localStorage.removeItem('fleLoggedIn');
+}
+
+function showFLELevel(level, buttonElement) {
+    const debutant = document.getElementById('fle-debutant');
+    const intermediaire = document.getElementById('fle-intermediaire');
+    const avance = document.getElementById('fle-avance');
+    
+    if (debutant) debutant.style.display = 'none';
+    if (intermediaire) intermediaire.style.display = 'none';
+    if (avance) avance.style.display = 'none';
+    
+    const selectedLevel = document.getElementById(`fle-${level}`);
+    if (selectedLevel) selectedLevel.style.display = 'block';
+    
+    const buttons = document.querySelectorAll('.fle-level-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    if (buttonElement) buttonElement.classList.add('active');
+}
+
+function checkFLEStoredLogin() {
+    if (localStorage.getItem('fleLoggedIn') === 'true') {
+        const loginContainer = document.getElementById('fle-login-container');
+        const protectedContainer = document.getElementById('fle-protected-container');
+        if (loginContainer && protectedContainer) {
+            loginContainer.style.display = 'none';
+            protectedContainer.style.display = 'block';
+            setTimeout(() => { initFLEAccordions(); }, 100);
+        }
+    }
+}
+
+function initFLEAccordions() {
+    const accordions = document.querySelectorAll("#fle-protected-container .accordion");
+    accordions.forEach(btn => {
+        btn.removeEventListener("click", btn._handler);
+        btn._handler = function() {
+            this.classList.toggle("active");
+            const panel = this.nextElementSibling;
+            if (panel) panel.classList.toggle("show");
+        };
+        btn.addEventListener("click", btn._handler);
+    });
 }
 
 // ============ NAVIGATION ============
@@ -415,7 +514,6 @@ function openSection(id) {
     const activeBtn = document.getElementById(`nav-${id}`);
     if (activeBtn) activeBtn.classList.add('active');
     
-    // Mapping des fichiers à charger
     const contentMap = {
         'Sixieme': { file: 'six.html', level: 'sixieme' },
         'Cinquieme': { file: 'cinq.html', level: 'cinquieme' },
