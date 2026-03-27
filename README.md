@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -12,15 +12,12 @@
 <!-- Font Awesome pour les icônes -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-
-</style>
 </head>
 
 <body>
 
 <header>
-  <h1>Mat_f</h1>
+  <h1>Mathématiques</h1>
   <p>Bienvenue sur le site de mathématiques</p>
 </header>
 
@@ -77,12 +74,22 @@
             <button onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></button>
           </div>
         </div>
-        <div class="calendar-grid" id="calendar-grid"></div>
+        <div class="calendar-grid" id="calendar-grid">
+          <div class="loading-spinner" style="padding: 20px;">
+            <i class="fas fa-spinner"></i>
+            <p>Chargement du calendrier...</p>
+          </div>
+        </div>
       </div>
 
       <div class="events-sidebar">
         <h3><i class="fas fa-bell"></i> Événements à venir</h3>
-        <div id="upcoming-events-list"></div>
+        <div id="upcoming-events-list">
+          <div class="loading-spinner" style="padding: 20px;">
+            <i class="fas fa-spinner"></i>
+            <p>Chargement des événements...</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -95,8 +102,8 @@
     <div class="info-list">
       <h3><i class="fas fa-bullhorn"></i> Informations importantes</h3>
       <ul>
-        <li><i class="fas fa-calendar-alt"></i> DS prévu la semaine prochaine</li>
-        <li><i class="fas fa-book-open"></i> Pensez à réviser les probabilités</li>
+        <li><i class="fas fa-calendar-alt"></i> Consultez le calendrier pour les dates des DS</li>
+        <li><i class="fas fa-book-open"></i> Pensez à réviser régulièrement</li>
         <li><i class="fas fa-clock"></i> Les cours reprennent le lundi</li>
       </ul>
     </div>
@@ -142,26 +149,56 @@
 </div>
 
 <script>
-// ============ GESTION DU CALENDRIER ============
+// ============ GESTION DU CALENDRIER AVEC FICHIER EXTERNE ============
 let currentDate = new Date();
 let currentYear = currentDate.getFullYear();
 let currentMonth = currentDate.getMonth();
+let eventsDatabase = {}; // Base de données des événements chargée depuis events.json
 
-const eventsDatabase = {
-    "2026-03-01": { title: "DS Chapitre 4 et 5", description: "Réviser bien l'exercice 5 du TD.<br>📅 Date: 1er mars 2026<br>⏰ Durée: 2h<br>📍 Salle: 204" },
-    "2026-03-04": { title: "DM à rendre", description: "Exercices 1 à 10.<br>📅 Date limite: 4 mars 2026<br>📝 À rendre en début d'heure" },
-    "2026-03-10": { title: "Contrôle continu", description: "Chapitres 1 à 3.<br>📅 Date: 10 mars 2026<br>⏰ Durée: 1h30" },
-    "2026-04-15": { title: "DS sur les fonctions", description: "Fonctions exponentielles et logarithme<br>📅 Date: 15 avril 2026<br>⏰ Durée: 2h" },
-    "2026-04-20": { title: "DM à rendre", description: "Exercices sur les probabilités<br>📅 Date limite: 20 avril 2026" },
-    "2026-05-05": { title: "Bac Blanc", description: "Épreuve de mathématiques<br>📅 Date: 5 mai 2026<br>⏰ Durée: 4h" }
-};
+// Charger les événements depuis le fichier JSON externe
+async function loadEvents() {
+    try {
+        const response = await fetch('events.json');
+        const data = await response.json();
+        
+        // Convertir le tableau d'événements en objet pour un accès facile
+        eventsDatabase = {};
+        data.events.forEach(event => {
+            eventsDatabase[event.date] = {
+                title: event.title,
+                description: event.description
+            };
+        });
+        
+        console.log(`${data.events.length} événements chargés avec succès`);
+        
+        // Recharger le calendrier avec les nouveaux événements
+        generateCalendar();
+        updateUpcomingEvents();
+        
+        return true;
+    } catch (error) {
+        console.error('Erreur lors du chargement des événements:', error);
+        // Événements par défaut en cas d'erreur
+        eventsDatabase = {
+            "2026-03-01": { title: "DS Chapitre 4 et 5", description: "Réviser bien l'exercice 5 du TD.<br>📅 Date: 1er mars 2026<br>⏰ Durée: 2h<br>📍 Salle: 204" },
+            "2026-03-04": { title: "DM à rendre", description: "Exercices 1 à 10.<br>📅 Date limite: 4 mars 2026<br>📝 À rendre en début d'heure" },
+            "2026-03-10": { title: "Contrôle continu", description: "Chapitres 1 à 3.<br>📅 Date: 10 mars 2026<br>⏰ Durée: 1h30" }
+        };
+        generateCalendar();
+        updateUpcomingEvents();
+        return false;
+    }
+}
 
 function getEventsForMonth(year, month) {
     const events = {};
     const monthStr = String(month + 1).padStart(2, '0');
+    
     for (const [date, event] of Object.entries(eventsDatabase)) {
         if (date.startsWith(`${year}-${monthStr}`)) {
-            events[parseInt(date.split('-')[2])] = event;
+            const day = parseInt(date.split('-')[2]);
+            events[day] = event;
         }
     }
     return events;
@@ -197,26 +234,37 @@ function generateCalendar() {
         const dateDiv = document.createElement('div');
         dateDiv.className = 'date-cell';
         dateDiv.innerHTML = `<div class="date-number">${day}</div>`;
+        
         if (monthEvents[day]) {
             const indicator = document.createElement('div');
             indicator.className = 'event-indicator';
             dateDiv.appendChild(indicator);
-            dateDiv.onclick = () => showPopup(monthEvents[day].title);
+            const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            dateDiv.onclick = () => showEventDetailsFromDate(dateStr);
         } else {
             dateDiv.onclick = () => showPopup(`Pas d'événement prévu le ${day} ${getMonthName(currentMonth)} ${currentYear}`);
         }
+        
         calendarGrid.appendChild(dateDiv);
     }
     
-    document.getElementById('current-month-year').textContent = `${getMonthName(currentMonth)} ${currentYear}`;
-    updateUpcomingEvents();
+    const monthYearElement = document.getElementById('current-month-year');
+    if (monthYearElement) {
+        monthYearElement.textContent = `${getMonthName(currentMonth)} ${currentYear}`;
+    }
 }
 
 function changeMonth(delta) {
     currentMonth += delta;
-    if (currentMonth < 0) { currentMonth = 11; currentYear--; }
-    else if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+    } else if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+    }
     generateCalendar();
+    updateUpcomingEvents();
 }
 
 function getMonthName(month) {
@@ -231,10 +279,14 @@ function updateUpcomingEvents() {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const upcomingEvents = [];
+    
     for (const [dateStr, event] of Object.entries(eventsDatabase)) {
         const eventDate = new Date(dateStr);
-        if (eventDate >= today) upcomingEvents.push({ date: eventDate, dateStr: dateStr, event: event });
+        if (eventDate >= today) {
+            upcomingEvents.push({ date: eventDate, dateStr: dateStr, event: event });
+        }
     }
+    
     upcomingEvents.sort((a, b) => a.date - b.date);
     const nextEvents = upcomingEvents.slice(0, 5);
     
@@ -248,28 +300,48 @@ function updateUpcomingEvents() {
         eventDiv.className = 'event-item';
         eventDiv.onclick = () => showEventDetailsFromDate(item.dateStr);
         const date = item.date;
-        eventDiv.innerHTML = `<i class="fas ${getEventIcon(item.event.title)}"></i><div class="event-item-info"><strong>${item.event.title}</strong><small>${date.getDate()} ${getMonthName(date.getMonth())} ${date.getFullYear()}</small></div>`;
+        const day = date.getDate();
+        const month = getMonthName(date.getMonth());
+        
+        eventDiv.innerHTML = `
+            <i class="fas ${getEventIcon(item.event.title)}"></i>
+            <div class="event-item-info">
+                <strong>${item.event.title}</strong>
+                <small>${day} ${month} ${date.getFullYear()}</small>
+            </div>
+        `;
+        
         eventsList.appendChild(eventDiv);
     });
 }
 
 function getEventIcon(title) {
-    if (title.includes('DS') || title.includes('Contrôle')) return 'fa-pen-fancy';
+    if (title.includes('DS') || title.includes('Contrôle') || title.includes('Devoir')) return 'fa-pen-fancy';
     if (title.includes('DM')) return 'fa-tasks';
     if (title.includes('Bac')) return 'fa-graduation-cap';
+    if (title.includes('Rendez-vous') || title.includes('parents')) return 'fa-users';
+    if (title.includes('Correction')) return 'fa-check-circle';
     return 'fa-calendar-alt';
 }
 
 function showEventDetailsFromDate(dateStr) {
     const event = eventsDatabase[dateStr];
     if (event) {
-        document.getElementById("event-text").innerHTML = `<strong>${event.title}</strong><br>${event.description}`;
-        document.getElementById("event-details").classList.add('show');
+        const textElement = document.getElementById("event-text");
+        const detailsBox = document.getElementById("event-details");
+        
+        if (textElement && detailsBox) {
+            textElement.innerHTML = `<strong>${event.title}</strong><br>${event.description}`;
+            detailsBox.classList.add('show');
+        }
     }
 }
 
 function closeEventDetails() {
-    document.getElementById("event-details").classList.remove('show');
+    const detailsBox = document.getElementById("event-details");
+    if (detailsBox) {
+        detailsBox.classList.remove('show');
+    }
 }
 
 // ============ CITATIONS ============
@@ -322,6 +394,7 @@ function displayCitation(index) {
 
 function createDots() {
     const dotsContainer = document.getElementById('citation-dots');
+    if (!dotsContainer) return;
     dotsContainer.innerHTML = '';
     citations.forEach((_, index) => {
         const dot = document.createElement('div');
@@ -395,7 +468,6 @@ async function loadContent(level, file) {
         container.innerHTML = html;
         
         setTimeout(() => {
-            // Accordéons généraux pour tous les niveaux
             document.querySelectorAll(`#${level} .accordion`).forEach(btn => {
                 btn.addEventListener("click", function() {
                     this.classList.toggle("active");
@@ -404,7 +476,6 @@ async function loadContent(level, file) {
                 });
             });
             
-            // Initialisation spécifique pour Math-FLE
             if (level === 'mathfle') {
                 initFLEAccordions();
                 checkFLEStoredLogin();
@@ -535,18 +606,29 @@ function openSection(id) {
 
 // ============ POPUP ============
 function showPopup(text) {
-    document.getElementById("popup-text").innerHTML = text;
-    document.getElementById("popup").style.display = "block";
+    const popupText = document.getElementById("popup-text");
+    const popup = document.getElementById("popup");
+    if (popupText && popup) {
+        popupText.innerHTML = text;
+        popup.style.display = "block";
+    }
 }
 
 function closePopup() {
-    document.getElementById("popup").style.display = "none";
+    const popup = document.getElementById("popup");
+    if (popup) {
+        popup.style.display = "none";
+    }
 }
 
 // ============ INITIALISATION ============
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     openSection("Accueil");
-    generateCalendar();
+    
+    // Charger les événements d'abord
+    await loadEvents();
+    
+    // Puis charger les citations
     loadCitations();
     
     document.getElementById('popup').addEventListener('click', (e) => {

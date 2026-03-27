@@ -1,0 +1,64 @@
+{
+  "events": [
+    {
+      "date": "2026-03-01",
+      "title": "DS Chapitre 4 et 5",
+      "description": "Réviser bien l'exercice 5 du TD.<br>📅 Date: 1er mars 2026<br>⏰ Durée: 2h<br>📍 Salle: 204"
+    },
+    {
+      "date": "2026-03-04",
+      "title": "DM à rendre",
+      "description": "Exercices 1 à 10.<br>📅 Date limite: 4 mars 2026<br>📝 À rendre en début d'heure"
+    },
+    {
+      "date": "2026-03-10",
+      "title": "Contrôle continu",
+      "description": "Chapitres 1 à 3.<br>📅 Date: 10 mars 2026<br>⏰ Durée: 1h30"
+    },
+    {
+      "date": "2026-03-15",
+      "title": "Correction du DM",
+      "description": "Correction en classe du devoir maison.<br>📅 Date: 15 mars 2026"
+    },
+    {
+      "date": "2026-03-20",
+      "title": "Devoir sur table",
+      "description": "Chapitre 4 et 5.<br>📅 Date: 20 mars 2026<br>⏰ Durée: 2h"
+    },
+    {
+      "date": "2026-03-25",
+      "title": "Rendez-vous parents-profs",
+      "description": "Rencontre avec les parents.<br>📅 Date: 25 mars 2026<br>📍 Salle des professeurs"
+    },
+    {
+      "date": "2026-04-15",
+      "title": "DS sur les fonctions",
+      "description": "Fonctions exponentielles et logarithme<br>📅 Date: 15 avril 2026<br>⏰ Durée: 2h"
+    },
+    {
+      "date": "2026-04-20",
+      "title": "DM à rendre",
+      "description": "Exercices sur les probabilités<br>📅 Date limite: 20 avril 2026"
+    },
+    {
+      "date": "2026-05-05",
+      "title": "Bac Blanc",
+      "description": "Épreuve de mathématiques<br>📅 Date: 5 mai 2026<br>⏰ Durée: 4h"
+    },
+    {
+      "date": "2026-05-10",
+      "title": "Correction Bac Blanc",
+      "description": "Correction détaillée en classe.<br>📅 Date: 10 mai 2026"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "Dernier DS de l'année",
+      "description": "Synthèse des chapitres 6 à 9.<br>📅 Date: 25 mai 2026<br>⏰ Durée: 3h"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Rendu des bulletins",
+      "description": "Remise des résultats.<br>📅 Date: 10 juin 2026"
+    }
+  ]
+}
