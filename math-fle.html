@@ -120,10 +120,6 @@
             box-shadow: 0 5px 15px rgba(30,144,255,0.3);
         }
 
-        .fle-login-btn:active {
-            transform: translateY(0);
-        }
-
         .fle-error-message {
             background: #fff5f5;
             color: #ff6b6b;
@@ -146,7 +142,6 @@
             text-align: left;
         }
 
-        /* Contenu protégé */
         .fle-protected-container {
             animation: fadeIn 0.5s ease;
         }
@@ -251,6 +246,84 @@
             border-radius: 16px;
             text-align: center;
         }
+
+        .accordion {
+            background: #eef3f8;
+            padding: 12px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 12px;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .accordion:hover {
+            background: #1e90ff;
+            color: white;
+        }
+
+        .accordion::after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            transition: transform 0.3s;
+        }
+
+        .accordion.active::after {
+            transform: rotate(180deg);
+        }
+
+        .panel {
+            display: none;
+            padding: 12px 15px;
+            background: #f9f9f9;
+            border-radius: 0 0 10px 10px;
+            margin-top: -5px;
+        }
+
+        .panel.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #1e90ff, #0066cc);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
     </style>
 
     <!-- Formulaire de connexion -->
@@ -276,11 +349,11 @@
                 <i class="fas fa-sign-in-alt"></i> Se connecter
             </button>
             
-            <div id="fle-login-message" style="margin-top: 15px;"></div>
+            <div id="fle-login-message"></div>
         </div>
     </div>
 
-    <!-- Contenu protégé (caché par défaut) -->
+    <!-- Contenu protégé -->
     <div id="fle-protected-container" class="fle-protected-container" style="display: none;">
         <div class="fle-header">
             <h2><i class="fas fa-lock-open"></i> Espace Math-FLE</h2>
@@ -291,7 +364,6 @@
         
         <p style="margin-bottom: 25px;">Ressources spécialement conçues pour les étudiants de français langue étrangère. Apprenez le vocabulaire mathématique et les concepts clés en français.</p>
 
-        <!-- Boutons de niveau -->
         <div class="fle-level-buttons">
             <button class="fle-level-btn active" onclick="showFLELevel('debutant', this)">
                 <i class="fas fa-star"></i> Débutant (A1-A2)
@@ -304,10 +376,9 @@
             </button>
         </div>
 
-        <!-- Contenu Débutant -->
+        <!-- Débutant -->
         <div id="fle-debutant" class="fle-level-content">
             <h3><i class="fas fa-star"></i> Niveau Débutant (A1-A2)</h3>
-            
             <button class="accordion">📚 Vocabulaire de base - Les nombres</button>
             <div class="panel">
                 <ul>
@@ -350,10 +421,9 @@
             </div>
         </div>
 
-        <!-- Contenu Intermédiaire -->
+        <!-- Intermédiaire -->
         <div id="fle-intermediaire" class="fle-level-content" style="display: none;">
             <h3><i class="fas fa-star-half-alt"></i> Niveau Intermédiaire (B1-B2)</h3>
-            
             <button class="accordion">📊 Vocabulaire avancé - Fractions et pourcentages</button>
             <div class="panel">
                 <ul>
@@ -395,10 +465,9 @@
             </div>
         </div>
 
-        <!-- Contenu Avancé -->
+        <!-- Avancé -->
         <div id="fle-avance" class="fle-level-content" style="display: none;">
             <h3><i class="fas fa-gem"></i> Niveau Avancé (C1-C2)</h3>
-            
             <button class="accordion">📝 Rédaction mathématique</button>
             <div class="panel">
                 <ul>
@@ -488,133 +557,3 @@
         </div>
     </div>
 </div>
-
-<script>
-// ============ FONCTIONS DE CONNEXION MATH-FLE ============
-// Identifiants de connexion (cachés dans le code)
-const FLE_USERNAME = "eleve";
-const FLE_PASSWORD = "mathematiques2026";
-
-function checkFLELogin() {
-    const username = document.getElementById('fle-username').value;
-    const password = document.getElementById('fle-password').value;
-    const messageDiv = document.getElementById('fle-login-message');
-    
-    if(username === FLE_USERNAME && password === FLE_PASSWORD) {
-        // Cacher le formulaire de connexion
-        document.getElementById('fle-login-container').style.display = 'none';
-        // Afficher le contenu protégé
-        document.getElementById('fle-protected-container').style.display = 'block';
-        
-        // Afficher un message de succès temporaire
-        messageDiv.innerHTML = '<div class="fle-success-message"><i class="fas fa-check-circle"></i> Connexion réussie ! Bienvenue dans l\'espace Math-FLE.</div>';
-        
-        // Sauvegarder l'état de connexion
-        localStorage.setItem('fleLoggedIn', 'true');
-        
-        // Effacer le message après 2 secondes
-        setTimeout(() => {
-            if (messageDiv.innerHTML.includes('Connexion réussie')) {
-                messageDiv.innerHTML = '';
-            }
-        }, 2000);
-    } else {
-        messageDiv.innerHTML = '<div class="fle-error-message"><i class="fas fa-exclamation-triangle"></i> Identifiant ou mot de passe incorrect. Veuillez réessayer.</div>';
-        
-        // Effacer le message après 3 secondes
-        setTimeout(() => {
-            messageDiv.innerHTML = '';
-        }, 3000);
-    }
-}
-
-function logoutFLE() {
-    // Cacher le contenu protégé
-    document.getElementById('fle-protected-container').style.display = 'none';
-    // Afficher le formulaire de connexion
-    document.getElementById('fle-login-container').style.display = 'flex';
-    // Réinitialiser les champs
-    document.getElementById('fle-username').value = '';
-    document.getElementById('fle-password').value = '';
-    // Effacer le message
-    document.getElementById('fle-login-message').innerHTML = '';
-    // Supprimer l'état de connexion
-    localStorage.removeItem('fleLoggedIn');
-}
-
-// Afficher le niveau sélectionné
-function showFLELevel(level, buttonElement) {
-    // Cacher tous les contenus
-    document.getElementById('fle-debutant').style.display = 'none';
-    document.getElementById('fle-intermediaire').style.display = 'none';
-    document.getElementById('fle-avance').style.display = 'none';
-    
-    // Afficher le niveau sélectionné
-    document.getElementById(`fle-${level}`).style.display = 'block';
-    
-    // Mettre à jour le style des boutons
-    const buttons = document.querySelectorAll('.fle-level-btn');
-    buttons.forEach(btn => {
-        btn.classList.remove('active');
-    });
-    buttonElement.classList.add('active');
-}
-
-// Vérifier si l'utilisateur était déjà connecté
-function checkFLEStoredLogin() {
-    if (localStorage.getItem('fleLoggedIn') === 'true') {
-        const loginContainer = document.getElementById('fle-login-container');
-        const protectedContainer = document.getElementById('fle-protected-container');
-        if (loginContainer && protectedContainer) {
-            loginContainer.style.display = 'none';
-            protectedContainer.style.display = 'block';
-        }
-    }
-}
-
-// Initialiser les accordéons pour Math-FLE
-function initFLEAccordions() {
-    const accordions = document.querySelectorAll("#fle-protected-container .accordion");
-    accordions.forEach(btn => {
-        // Éviter les doublons d'écouteurs
-        btn.removeEventListener("click", btn._clickHandler);
-        btn._clickHandler = function() {
-            this.classList.toggle("active");
-            let panel = this.nextElementSibling;
-            if (panel) {
-                panel.classList.toggle("show");
-            }
-        };
-        btn.addEventListener("click", btn._clickHandler);
-    });
-}
-
-// Observer les changements de contenu pour réinitialiser les accordéons
-const observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-        if (mutation.type === 'childList' || mutation.type === 'subtree') {
-            initFLEAccordions();
-        }
-    });
-});
-
-// Exécuter l'initialisation après chargement du contenu
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        checkFLEStoredLogin();
-        initFLEAccordions();
-        // Observer les changements dans le conteneur protégé
-        const protectedContainer = document.getElementById('fle-protected-container');
-        if (protectedContainer) {
-            observer.observe(protectedContainer, { childList: true, subtree: true });
-        }
-    });
-} else {
-    checkFLEStoredLogin();
-    initFLEAccordions();
-    const protectedContainer = document.getElementById('fle-protected-container');
-    if (protectedContainer) {
-        observer.observe(protectedContainer, { childList: true, subtree: true });
-    }
-}
-</script>
